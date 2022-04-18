@@ -36,13 +36,18 @@ public class ClsWebElements extends ClsBrowser {
 
 	public WebElement GetWebElement(By by) {
 		try {
-			//ClsReport.fnLog(Status.INFO, "Step - Get Web Element: " + by.toString(), false);
-			WebElement pobjElement = ClsBrowser.objDriver.findElement(by);
-			//ClsReport.fnLog(Status.PASS, "Step - The Web Element: " + by.toString() + " was found as expected.", false);
+			// ClsReport.fnLog(Status.INFO, "Step - Get Web Element: " + by.toString(),
+			// false);
+			WebElement pobjElement = objDriver.findElement(by);
+			// ClsReport.fnLog(Status.PASS, "Step - The Web Element: " + by.toString() + "
+			// was found as expected.", false);
 			return pobjElement;
 		} catch (NoSuchElementException pobjException) {
-			/*ClsReport.fnLog(Status.FAIL, "Step - The Web Element: " + by.toString()
-				+ " was not found as expected. Exception: " + pobjException.getStackTrace(), true);*/
+			/*
+			 * ClsReport.fnLog(Status.FAIL, "Step - The Web Element: " + by.toString() +
+			 * " was not found as expected. Exception: " + pobjException.getStackTrace(),
+			 * true);
+			 */
 			return null;
 		}
 	}
@@ -63,7 +68,7 @@ public class ClsWebElements extends ClsBrowser {
 
 	public List<WebElement> GetWebList(By by) {
 		try {
-			List<WebElement> pobjElement = ClsBrowser.objDriver.findElements(by);
+			List<WebElement> pobjElement = objDriver.findElements(by);
 			return pobjElement;
 		} catch (Exception pobjException) {
 			System.out.println("The element was (" + by.toString() + ") not located in the page");
@@ -98,7 +103,7 @@ public class ClsWebElements extends ClsBrowser {
 		try {
 			// Waiting 30 seconds for an element to be present on the page, checking
 			// for its presence once every 5 seconds.
-			objFluentWait = new FluentWait<WebDriver>(ClsBrowser.objDriver).withTimeout(Duration.ofSeconds(30L))
+			objFluentWait = new FluentWait<WebDriver>(objDriver).withTimeout(Duration.ofSeconds(30L))
 					.pollingEvery(Duration.ofSeconds(3L)).ignoring(NoSuchElementException.class);
 
 			// Get Web Element and perform action
@@ -123,7 +128,7 @@ public class ClsWebElements extends ClsBrowser {
 	public boolean Click(final By by) {
 		try {
 			WebElement objElement = (WebElement) GetFluentWait(by);
-			objExplicitWait = new WebDriverWait(ClsBrowser.objDriver, DefaultTimeout);
+			objExplicitWait = new WebDriverWait(objDriver, DefaultTimeout);
 			objExplicitWait.until(ExpectedConditions.elementToBeClickable(by));
 			objElement.click();
 			return true;
@@ -150,7 +155,7 @@ public class ClsWebElements extends ClsBrowser {
 	public boolean SendKeys(final By by, String pValue) {
 		try {
 			WebElement objElement = (WebElement) GetFluentWait(by);
-			objExplicitWait = new WebDriverWait(ClsBrowser.objDriver, DefaultTimeout);
+			objExplicitWait = new WebDriverWait(objDriver, DefaultTimeout);
 			objExplicitWait.until(ExpectedConditions.visibilityOfElementLocated(by));
 			objElement.clear();
 			objElement.sendKeys(pValue);
@@ -183,7 +188,7 @@ public class ClsWebElements extends ClsBrowser {
 	public boolean SelectItem(final By by, String pMethod, String pValue) {
 		try {
 			WebElement objElement = (WebElement) GetFluentWait(by);
-			objExplicitWait = new WebDriverWait(ClsBrowser.objDriver, 10);
+			objExplicitWait = new WebDriverWait(objDriver, 10);
 			objExplicitWait.until(ExpectedConditions.visibilityOfElementLocated(by));
 			Select selectObject = new Select(objElement);
 
@@ -220,7 +225,7 @@ public class ClsWebElements extends ClsBrowser {
 	 */
 
 	public void WaitForElement(final String pstrLocator) {
-		objExplicitWait = new WebDriverWait(ClsBrowser.objDriver, 10);
+		objExplicitWait = new WebDriverWait(objDriver, 10);
 		objExplicitWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(pstrLocator)));
 	}
 
@@ -229,7 +234,7 @@ public class ClsWebElements extends ClsBrowser {
 	 */
 
 	public void WaitForElementClickable(final By by) {
-		objExplicitWait = new WebDriverWait(ClsBrowser.objDriver, 10);
+		objExplicitWait = new WebDriverWait(objDriver, 10);
 		objExplicitWait.until(ExpectedConditions.presenceOfElementLocated(by));
 		objExplicitWait.until(ExpectedConditions.elementToBeClickable(by));
 	}
@@ -248,7 +253,7 @@ public class ClsWebElements extends ClsBrowser {
 				return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
 			}
 		};
-		WebDriverWait wait = new WebDriverWait(ClsBrowser.objDriver, 30);
+		WebDriverWait wait = new WebDriverWait(objDriver, 30);
 		wait.until(pageLoadCondition);
 	}
 
@@ -257,15 +262,15 @@ public class ClsWebElements extends ClsBrowser {
 	 */
 
 	public void LinkText(final String pstrLocator) {
-		WebElement objElement = ClsBrowser.objDriver.findElement(By.linkText(pstrLocator));
+		WebElement objElement = objDriver.findElement(By.linkText(pstrLocator));
 		objElement.click();
 
 	}
 
 	public void AcceptAlert() {
-		WebDriverWait wait = new WebDriverWait(ClsBrowser.objDriver, 3000);
+		WebDriverWait wait = new WebDriverWait(objDriver, 3000);
 		wait.until(ExpectedConditions.alertIsPresent());
-		Alert alert = ClsBrowser.objDriver.switchTo().alert();
+		Alert alert = objDriver.switchTo().alert();
 		alert.accept();
 	}
 
@@ -274,12 +279,27 @@ public class ClsWebElements extends ClsBrowser {
 	 */
 
 	public String GetAlertText() {
-		WebDriverWait wait = new WebDriverWait(ClsBrowser.objDriver, 3000);
+		WebDriverWait wait = new WebDriverWait(objDriver, 3000);
 		wait.until(ExpectedConditions.alertIsPresent());
-		Alert alert = ClsBrowser.objDriver.switchTo().alert(); // In this case a use the variable alert because isn't
+		Alert alert = objDriver.switchTo().alert(); // In this case a use the variable alert because isn't
 																// use
 		String alertMessage = alert.getText(); // Here is were you don´t use the alert and repeat the code
 		return alertMessage;
+	}
+
+	/**
+	 * 
+	 * @param locator
+	 */
+	public void Scroll(By locator) {
+		JavascriptExecutor je = (JavascriptExecutor) objDriver;
+		// Identify the WebElement which will appear after scrolling down
+		WebElement element = objDriver.findElement(locator);
+		// now execute query which actually will scroll until that element is not
+		// appeared on page.
+		je.executeScript("arguments[0].scrollIntoView(true);", element);
+		// Extract the text and verify
+		//System.out.println(element.getText());
 	}
 
 }

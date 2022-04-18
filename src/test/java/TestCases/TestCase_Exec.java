@@ -3,7 +3,7 @@ package TestCases;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestName;
@@ -55,52 +55,52 @@ public class TestCase_Exec extends ClsWebElements {
 		}
 	}
 
-	@Ignore // Add this ignore because only use the first test :3
+	
 	@Test
 	public void SecondTest() {
 		try {
 			ClsReport.objTest = ClsReport.objExtent.createTest("Second Test");
 			URL = "https://positionsapp-uat.azurewebsites.net/#";
 			NavigateToUrl(URL);
-			ClsReport.fnLog(Status.PASS, "Go to the url in the Second Test", false);
+			ClsReport.fnLog(Status.PASS, " Step - Go to the url in the Second Test", false);
 			WaitForLoad();
-			ClsReport.fnLog(Status.INFO, "Wai for load page in the Second Test", false);
+			ClsReport.fnLog(Status.INFO, " Step -Wai for load page in the Second Test", false);
 			AtLoginPage objLogin = new AtLoginPage();
-			ClsReport.fnLog(Status.PASS, "Wait load page", false);
+			ClsReport.fnLog(Status.PASS, " Step - Wait load page", false);
 			objLogin.enterCredential();
-			ClsReport.fnLog(Status.PASS, "Enter credentials in the Second Test", false);
+			ClsReport.fnLog(Status.PASS, " Step - Enter credentials in the Second Test", false);
 			objLogin.startSession();
-			ClsReport.fnLog(Status.PASS, "Start the first session  in the Second Test", false);
+			ClsReport.fnLog(Status.PASS, "Step - Start the first session  in the Second Test", false);
 			objLogin.keepSessionDialog();
-			ClsReport.fnLog(Status.PASS, "Keep session  in the Second Test", false);
+			ClsReport.fnLog(Status.PASS, "Step -Keep session  in the Second Test", false);
 			objLogin.verifyActiveSession();
-			ClsReport.fnLog(Status.PASS, "Verify that session is active  in Second Test", true);
+			ClsReport.fnLog(Status.PASS, "Step -Verify that session is active  in Second Test", true);
 		} catch (Exception e) {
 			ClsReport.fnLog(Status.FAIL, "The: " + TC_Name.getMethodName()
 					+ " was not executed successfully. \n Exception: " + e.getMessage(), false);
 		}
 	}
 
-	@Ignore // Add this ignore because only use the first test :3
+	
 	@Test
-	public void ThreeTest() {
+	public void Thirdest() {
 		try {
-			ClsReport.objTest = ClsReport.objExtent.createTest("Three Test");
+			ClsReport.objTest = ClsReport.objExtent.createTest("Third Test");
 			URL = "https://positionsapp-uat.azurewebsites.net/#";
 			NavigateToUrl(URL);
-			ClsReport.fnLog(Status.PASS, "Go to the url in the Three Test", false);
+			ClsReport.fnLog(Status.PASS, "Step - Go to the url in the Three Test", false);
 			WaitForLoad();
-			ClsReport.fnLog(Status.INFO, "Wai for load page in the Three Test", false);
+			ClsReport.fnLog(Status.INFO, "Step - Wai for load page in the Three Test", false);
 			AtLoginPage objLogin = new AtLoginPage();
-			ClsReport.fnLog(Status.PASS, "Wait load page in the Three Test", false);
+			ClsReport.fnLog(Status.PASS, "Step - Wait load page in the Three Test", false);
 			objLogin.enterCredential();
-			ClsReport.fnLog(Status.PASS, "Enter credentials in the Three Test", false);
+			ClsReport.fnLog(Status.PASS, "Step - Enter credentials in the Three Test", false);
 			objLogin.startSession();
-			ClsReport.fnLog(Status.PASS, "Start the first session  in Three Test", false);
+			ClsReport.fnLog(Status.PASS, "Step - Start the first session  in Three Test", false);
 			objLogin.keepSessionDialog();
-			ClsReport.fnLog(Status.PASS, "Keep session  in the Three Test", false);
+			ClsReport.fnLog(Status.PASS, "Step - Keep session  in the Three Test", false);
 			objLogin.verifyActiveSession();
-			ClsReport.fnLog(Status.PASS, "Verify that session is active  in the Three Test", true);
+			ClsReport.fnLog(Status.PASS, "Step - Verify that session is active  in the Three Test", true);
 		} catch (Exception e) {
 			ClsReport.fnLog(Status.FAIL, "The: " + TC_Name.getMethodName()
 					+ " was not executed successfully. \n Exception: " + e.getMessage(), false);
