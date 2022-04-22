@@ -24,7 +24,7 @@ public class CreateAccoundPage extends ClsWebElements {
 	// Variables
 	String firtsNameText = "Eduardo";
 	String LastNameText = "Luna";
-	String emailText = "EduLunaHRZ@gmail.com";
+	String emailText = "TestAFinal@el.com";
 	String passwordText = "test123";
 
 	/**

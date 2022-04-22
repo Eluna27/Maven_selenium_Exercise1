@@ -2,7 +2,6 @@ package Exersice_3;
 
 import org.openqa.selenium.By;
 
-
 import selenium.ClsWebElements;
 
 public class TechPandaHomePage extends ClsWebElements {
@@ -21,38 +20,27 @@ public class TechPandaHomePage extends ClsWebElements {
 	 */
 
 	public void addToCarTVLG() {
-		try {
+		
 			WaitForLoad();
 			WaitForElementClickable(btnAddToCarProductLG);
 			Click(btnAddToCarProductLG);
-		} catch (Exception e) {
-			System.out.print("GG");
-		}
 	}
 
 	public void addToCarTvSamsung() {
-		try {
+		
 			WaitForLoad();
 			WaitForElementClickable(btnAddToCarProductTvSamsung);
 			Click(btnAddToCarProductTvSamsung);
-		} catch (Exception e) {
-			System.out.print("GG");
-		}
 	}
-	
-
 
 	public void goToCreateAcountPage() throws InterruptedException {
-		try {
+		
 			WaitForLoad();
 			WaitForElementClickable(aAcount);
 			Click(aAcount);
 			Thread.sleep(2000);// Wait 3 seconds
 			WaitForElementClickable(aResgiter);
 			Click(aResgiter);
-		} catch (Exception e) {
-			System.out.print("GG");
-		}
 	}
 
 }

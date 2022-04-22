@@ -39,9 +39,9 @@ public class TestCase_2 extends ClsWebElements {
 
 	@Test
 
-	public void Test_AddToCarLG() {
+	public void Test_AddToCartSamsung() {
 		try {
-			ClsReport.objTest = ClsReport.objExtent.createTest("Add TV LG Test");
+			ClsReport.objTest = ClsReport.objExtent.createTest("Test Add To Cart TV Samsung");
 			URL = "http://live.techpanda.org/index.php/tv.html";
 			NavigateToUrl(URL);
 			ClsReport.fnLog(Status.PASS, "Step - Go to the url", false);

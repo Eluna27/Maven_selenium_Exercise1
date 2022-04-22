@@ -36,84 +36,82 @@ public class CheckoutPage extends ClsWebElements {
 
 	String textFirstName = "Eduardo";
 	String textLastname = "Luna";
-	String textEmail = "elunaQA@ola.com";
+	String textEmail = "elunaHLQA@ola.com";
 	String textStreet = "Benito";
 	String textCity = "Colima";
 	String textFZip = "25589";
 	String textTNumber = "1234567890";
 
 	public void Checkout() {
-		WaitForLoad();
-		WaitForElementClickable(btnContinueSetMethod);
-		Click(btnContinueSetMethod);
+
+			WaitForLoad();
+			WaitForElementClickable(btnContinueSetMethod);
+			Click(btnContinueSetMethod);
 
 	}
 
 	public void billingInformation() {
-		WaitForElement(inputFirstName);
-		SendKeys(inputFirstName, textFirstName);
-		WaitForElement(inputLastname);
-		SendKeys(inputLastname, textLastname);
-		WaitForElement(inputEmail);
-		SendKeys(inputEmail, textEmail);
-		WaitForElement(inputStreet);
-		SendKeys(inputStreet, textStreet);
-		WaitForElement(inputCity);
-		SendKeys(inputCity, textCity);
-		WaitForElement(selectRegion);
-		Click(selectRegion);
-		WaitForElement(optionRegion);
-		Click(optionRegion);
-		WaitForElement(inputZip);
-		SendKeys(inputZip, textFZip);
-		WaitForElement(inputTNumber);
-		SendKeys(inputTNumber, textTNumber);
-		WaitForElementClickable(btnContinuesBuillingSave);
-		Click(btnContinuesBuillingSave);
+			WaitForElement(inputFirstName);
+			SendKeys(inputFirstName, textFirstName);
+			WaitForElement(inputLastname);
+			SendKeys(inputLastname, textLastname);
+			WaitForElement(inputEmail);
+			SendKeys(inputEmail, textEmail);
+			WaitForElement(inputStreet);
+			SendKeys(inputStreet, textStreet);
+			WaitForElement(inputCity);
+			SendKeys(inputCity, textCity);
+			WaitForElement(selectRegion);
+			Click(selectRegion);
+			WaitForElement(optionRegion);
+			Click(optionRegion);
+			WaitForElement(inputZip);
+			SendKeys(inputZip, textFZip);
+			WaitForElement(inputTNumber);
+			SendKeys(inputTNumber, textTNumber);
+			WaitForElementClickable(btnContinuesBuillingSave);
+			Click(btnContinuesBuillingSave);
+
 	}
 
 	public void shipping() {
-		WaitForElementClickable(btnContinueShippingMethod);
-		Click(btnContinueShippingMethod);
+			WaitForElementClickable(btnContinueShippingMethod);
+			Click(btnContinueShippingMethod);
 	}
 
 	public void paymentInformation() {
-		WaitForElement(inputCheckMoneyOder);
-		Click(inputCheckMoneyOder);
-		WaitForElementClickable(btnContinuePaymentSave);
-		Click(btnContinuePaymentSave);
+		
+			WaitForElement(inputCheckMoneyOder);
+			Click(inputCheckMoneyOder);
+			WaitForElementClickable(btnContinuePaymentSave);
+			Click(btnContinuePaymentSave);
+
 	}
 
 	public void orderReview() {
-		verifyProductName();
-		WaitForElementClickable(btnPlaceOrder);
-		Click(btnPlaceOrder);
+			verifyProductName();
+			WaitForElementClickable(btnPlaceOrder);
+			Click(btnPlaceOrder);
+
 	}
 
 	private void verifyProductName() {
-		try {
+		
 			WaitForLoad();
 			WaitForElement(h3ProductName);
 			WebElement objproductName = GetWebElement(h3ProductName);
 			String currentGreetings = objproductName.getAttribute("innerText");
 			Assert.assertEquals("SAMSUNG LCD", currentGreetings);
 			System.out.print("The product is correct");
-		} catch (Exception e) {
-			System.out.print(false);
-		}
 
 	}
-	
+
 	public void verifyOrderReceived() {
-		try {
 			WaitForLoad();
 			WaitForElement(h1OrderReceived);
 			WebElement objOrderReceived = GetWebElement(h1OrderReceived);
 			String currentGreetings = objOrderReceived.getAttribute("innerText");
 			Assert.assertEquals("YOUR ORDER HAS BEEN RECEIVED.", currentGreetings);
 			System.out.print("order complete");
-		} catch (Exception e) {
-			System.out.print(false);
-		}
 	}
 }
