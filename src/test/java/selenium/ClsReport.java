@@ -18,7 +18,7 @@ public class ClsReport {
 	/**
 	 * Constants
 	 */
-	public static String reportLocation = "C:\\Users\\Eduar\\OneDrive\\Escritorio\\Selenium\\Reports_exercise2\\Reports_exercise2.html";
+	public static String reportLocation = "C:\\Users\\Eduar\\OneDrive\\Escritorio\\Selenium\\Reports_exercise3\\report.html";
 	//public static String reportLocation = ""; I not use this constant
 	public static ExtentReports objExtent;
 	public static ExtentSparkReporter objReport;
@@ -69,7 +69,7 @@ public class ClsReport {
 			Date date = new Date(System.currentTimeMillis());
 			String strSSName = "SS_" + formatter.format(date);
 			File scrFile = ((TakesScreenshot) ClsBrowser.objDriver).getScreenshotAs(OutputType.FILE);
-			strFileLocation = "C:\\Users\\Eduar\\OneDrive\\Escritorio\\Selenium\\Reports_exercise2\\img\\" + strSSName.toString() + ".png";
+			strFileLocation = "C:\\Users\\Eduar\\OneDrive\\Escritorio\\Selenium\\Reports_exercise3\\img\\" + strSSName.toString() + ".png";
 			FileUtils.copyFile(scrFile, new File(strFileLocation));
 			return strFileLocation;
 		} catch (Exception e) {

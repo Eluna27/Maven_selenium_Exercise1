@@ -33,12 +33,12 @@ public class Test_Amazon extends ClsWebElements {
 	public static void beforeClass() {
 		ClsReport.fnSetupReport();
 	}
-	
+
 	// Start the Chrome driver
 
 	@Before
 	public void setup() {
-		ClsBrowser.BrowserName = "Chrome"; //Send the bowser name
+		ClsBrowser.BrowserName = "Chrome"; // Send the bowser name
 		OpenBrowser(); // Open the browser and start the driver
 	}
 
@@ -65,12 +65,12 @@ public class Test_Amazon extends ClsWebElements {
 			WaitForLoad();
 			// Object promotions
 			PromotionsPage objPromotions = new PromotionsPage();
-			ClsReport.fnLog(Status.PASS, " Step - Got to the offers page ", true);
+			ClsReport.fnLog(Status.PASS, " Step - Got to the offers page ", false);
 			objPromotions.goToOffers();
 			WaitForLoad();
 			ClsReport.fnLog(Status.PASS, " Step - Get item list ", true);
 			objPromotions.getListItems();
-
+			ClsReport.fnLog(Status.INFO, " Step - Test complete", false);
 		} catch (Exception e) {
 			ClsReport.fnLog(Status.FAIL, "The: " + TC_Name.getMethodName()
 					+ " was not executed successfully. \n Exception: " + e.getMessage(), false);
@@ -80,8 +80,8 @@ public class Test_Amazon extends ClsWebElements {
 
 	@After
 
-	public void tearDown() { //Finish the test
-		CloseBrowser();//Close browser
-		ClsReport.fnCloseReport();//end report
+	public void tearDown() { // Finish the test
+		CloseBrowser();// Close browser
+		ClsReport.fnCloseReport();// end report
 	}
 }

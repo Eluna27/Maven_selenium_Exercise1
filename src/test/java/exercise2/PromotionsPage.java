@@ -67,7 +67,7 @@ public class PromotionsPage extends ClsWebElements {
 			if (i == index - 1) { //if the index is negative the report show that the page is the last page
 				ClsReport.fnLog(Status.INFO, " In the last page ", false);
 				ClsReport.fnLog(Status.PASS, " The last page is load correctly ", true);
-			} else { // continue the cycle
+			} else { // continue the loop
 				Scroll(NextBtn); //Scrolls to the button next
 				WaitForElementClickable(NextBtn ); // Wait for the web element
 				Click(NextBtn); // Click in the button
